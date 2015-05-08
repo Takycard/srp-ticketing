@@ -78,6 +78,10 @@ angular.module('srpTicketingApp')
         templateUrl: 'views/demandescpm.html',
         controller: 'DemandescpmCtrl'
       })
+      .when('/tickets-escalade', {
+        templateUrl: 'views/tickets-escalade.html',
+        controller: 'TicketsEscaladeCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
