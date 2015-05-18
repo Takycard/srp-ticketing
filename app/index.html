@@ -31,17 +31,16 @@
                             <!-- //angularfire -->
                             <li><a ng-href="#/chat">Chat</a></li>
 
+                            <li>
+                                <a class="glyphicon glyphicon-send" ng-show-auth="" href="#/demandes-cpm"> Tickets CPM</a>
+                            </li>
+
+                            <li>
+                                <a class="glyphicon glyphicon-send" ng-show-auth="" href="#/tickets-escalade"> Tickets Escalade</a>
+                            </li>
                             <li class="nav navbar-nav navbar-right">
                                 <a ng-hide-auth="" href="#/login">Log in</a>
                                 <a ng-show-auth="" href="#/account" class="glyphicon glyphicon-user"> Mon compte</a>
-                            </li>
-
-                            <li>
-                                <a ng-show-auth="" href="#/demandes-cpm">Tickets CPM</a>
-                            </li>
-
-                            <li>
-                                <a ng-show-auth="" href="#/tickets-escalade">Tickets Escalade</a>
                             </li>
                         </ul>
                     </div>

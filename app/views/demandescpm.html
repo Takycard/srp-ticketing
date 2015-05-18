@@ -1,16 +1,73 @@
 <div>
 
     <table class="table table-condensed">
-        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></td>
-        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-exclamation-sign"> Tickets non lus </a></td>
-        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-send"> Mes tickets et tickets suivis </a></td>
-        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-plus"> Nouveau ticket </a></td>
-        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-cog"> Paramètres </a></td>
-        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-search"> Recherche </a></td>
+        <td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></td>
+        <td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-exclamation-sign"> Tickets non lus </a></td>
+        <td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-send"> Mes tickets et tickets suivis </a></td>
+
+
+        <td> <a ng-click="toggleNouveauTicket()" ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-plus"> Nouveau ticket </a>
+            <!--Div for the "New Ticket"'s tab-->
+            <div ng-show="testNouveauTicket">
+                <div>
+                    <label>Priorité</label>
+                    <button> Choisir</button>
+                </div>
+
+                <div>
+                    <label>Vente</label>
+                    <button> Choisir</button>
+                </div>
+
+                <div>
+                    <label>Catégorie</label>
+                    <button> Choisir</button>
+                    <label>Sous-Catégorie</label>
+                    <button> Choisir</button>
+                </div>
+
+                <div>
+                    <label>No. de Commande</label>
+                    <input>
+                    <label>No. de Vente</label>
+                    <input>
+                    <label>Ref. SRP</label>
+                    <input>
+                </div>
+
+                <div>
+                    <label>Sujet</label>
+                    <input>
+                </div>
+
+                <div>
+                    <label class="glyphicon glyphicon-paperclip"> Fichier à joindre</label>
+                    <input>    <button class="glyphicon glyphicon-plus"></button>
+                </div>
+                <button>Envoyer le ticket</button>
+            </div>
+        </td>
+
+
+        <td> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-cog"> Paramètres </a>
+            <div>
+                <label>Catégorie</label>
+                <input placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+            </div>
+
+            <div>
+                <label>Sous-Catégorie</label>
+                <input placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
+            </div>
+        </td>
+
+
+        <td> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-search"> Recherche </a></td>
     </table>
 
 </div>
 
+<!--Table where the tickets are displayed-->
 <div ng-hide="test">
     <tabset class="table table-hover">
         <tab> # </tab>

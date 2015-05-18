@@ -14,8 +14,14 @@ angular.module('srpTicketingApp')
         'AngularJS',
         'Karma'
     ];
-    $scope.test = "false";
+    $scope.test = false;
+    $scope.testNouveauTicket = false;
+
     $scope.toggle = function() {
         $scope.test = !$scope.test;
+    }
+
+    $scope.toggleNouveauTicket = function() {
+        $scope.testNouveauTicket = !$scope.testNouveauTicket;
     }
 });
