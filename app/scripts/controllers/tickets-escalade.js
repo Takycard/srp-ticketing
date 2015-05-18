@@ -8,10 +8,10 @@
  * Controller of the srpTicketingApp
  */
 angular.module('srpTicketingApp')
-  .controller('TicketsEscaladeCtrl', function ($scope) {
+.controller('TicketsEscaladeCtrl', function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
     ];
-  });
+});

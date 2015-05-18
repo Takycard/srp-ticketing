@@ -1,1 +1,32 @@
-<p>This is the demandesCPM view.</p>
+<div>
+
+    <table class="table table-condensed">
+        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></td>
+        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-exclamation-sign"> Tickets non lus </a></td>
+        <td ng-click="toggle()">        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-send"> Mes tickets et tickets suivis </a></td>
+        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-plus"> Nouveau ticket </a></td>
+        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-cog"> Paramètres </a></td>
+        <td>        <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-search"> Recherche </a></td>
+    </table>
+
+</div>
+
+<div ng-hide="test">
+    <tabset class="table table-hover">
+        <tab> # </tab>
+        <tab> Nom </tab>
+        <tab> Sujet </tab>
+        <tab> Priorité </tab>
+        <tab> Avant/Après Vente </tab>
+        <tab> Catégorie </tab>
+        <tab> Sous-Catégorie </tab>
+        <tab> No. de Commande </tab>
+        <tab> No. de Vente </tab>
+        <tab> Ref. SRP </tab>
+        <tab> Date de Création </tab>
+        <tab> Statut </tab>
+        <tab> +1 500€ </tab>
+        <tab> Date de Dernière Réponse </tab>
+        <tab> Par </tab>
+    </tabset>
+</div>

@@ -19,4 +19,4 @@ angular.module('srpTicketingApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth'
-  ]);
+]);
