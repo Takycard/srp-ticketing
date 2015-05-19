@@ -18,5 +18,7 @@ angular.module('srpTicketingApp', [
     'ngTouch',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'ui.bootstrap',
+    'ui.bootstrap.tabs.include'
 ]);

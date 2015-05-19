@@ -1,13 +1,21 @@
-<div>
+<div ng-controller="TicketsEscaladeCtrl">
+    <tabset>
+        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+            {{tab.content}}
+        </tab>
+    </tabset>
+</div>
 
-    <table class="table table-condensed">
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></td>
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-send"> Tickets du groupe </a></td>
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-plus"> Nouveau ticket </a></td>
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-cog"> Paramètres </a></td>
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-stats"> Statistiques </a></td>
-        <td> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-search"> Recherche </a></td>
-    </table>
+<!--
+<div>
+    <ul class="table table-condensed">
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></li>
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-send"> Tickets du groupe </a></li>
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-plus"> Nouveau ticket </a></li>
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-cog"> Paramètres </a></li>
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-stats"> Statistiques </a></li>
+        <li> <a ng-href="http://localhost:9000/#/tickets-escalade" class="glyphicon glyphicon-search"> Recherche </a></li>
+    </ul>
 </div>
 
 <div>
@@ -29,4 +37,4 @@
         <tab> Par </tab>
         <tab> Archivé </tab>
     </tabset>
-</div>
+</div>-->
