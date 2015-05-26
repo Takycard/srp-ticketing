@@ -1,1 +1,26 @@
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.srpPink {
+    color: #dd0cb4;
+}
+
+.srpNewTcktInput {
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+}
+
+.srpAlignCenter {
+    display: inline-block;
+    width: 60%;
+    height: 60%;
+}
+
+.srpDisplayInline {
+    display: inline;
+}
+
+.srpSizeTextBtnSend {
+    font-family: monospace;
+    font-size: 20px;
+}

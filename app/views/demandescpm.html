@@ -1,307 +1,357 @@
-<div ng-controller="DemandescpmCtrl">
+<div>
     <tabset>
-        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-            {{tab.content}}
+        <tab heading="Tickets à traiter">
+            <br>
+            <div>
+                <button class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-export"></span>
+                    Exporter vers Excel
+                </button>
+            </div>
+            <br>
+            <table class="table">
+                <tr class="srpPink">
+                    <th> # </th>
+                    <th > Nom </th>
+                    <th > Sujet </th>
+                    <th > Priorité </th>
+                    <th > Avant/Après Vente </th>
+                    <th > Catégorie </th>
+                    <th > Sous-Catégorie </th>
+                    <th > No. de Commande </th>
+                    <th > No. de Vente </th>
+                    <th > Ref. SRP </th>
+                    <th > Date de Création </th>
+                    <th > Statut </th>
+                    <th > +1500€ </th>
+                    <th > Date de Dernière Réponse </th>
+                    <th > Par </th>
+                </tr>
+            </table>
+        </tab>
+
+        <tab heading="Tickets non lus">
+            <br>
+            <table class="table">
+                <tr class="srpPink">
+                    <th > # </th>
+                    <th > Nom </th>
+                    <th > Sujet </th>
+                    <th > Priorité </th>
+                    <th > Avant/Après Vente </th>
+                    <th > Catégorie </th>
+                    <th > Sous-Catégorie </th>
+                    <th > No. de Commande </th>
+                    <th > No. de Vente </th>
+                    <th > Ref. SRP </th>
+                    <th > Date de Création </th>
+                    <th > Statut </th>
+                    <th > +1500€ </th>
+                    <th > Date de Dernière Réponse </th>
+                    <th > Par </th>
+                </tr>
+            </table>
+        </tab>
+
+        <tab heading="Mes tickets et tickets suivis">
+            <br>
+            <table class="table">
+                <tr class="srpPink">
+                    <th > # </th>
+                    <th > Nom </th>
+                    <th > Sujet </th>
+                    <th > Priorité </th>
+                    <th > Avant/Après Vente </th>
+                    <th > Catégorie </th>
+                    <th > Sous-Catégorie </th>
+                    <th > No. de Commande </th>
+                    <th > No. de Vente </th>
+                    <th > Ref. SRP </th>
+                    <th > Date de Création </th>
+                    <th > Statut </th>
+                    <th > +1500€ </th>
+                    <th > Date de Dernière Réponse </th>
+                    <th > Par </th>
+                </tr>
+            </table>
+
+        </tab>
+
+        <tab heading="Nouveau Ticket">
+            <br>
+            <div>
+                <div>
+                    <label>Priorité</label>
+                    <div class="btn-group" dropdown>
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle"
+                                dropdown-toggle>
+                            Choisir<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-repeat="choice in ssCat">
+                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <label>Vente</label>
+                    <div class="btn-group" dropdown>
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle"
+                                dropdown-toggle>
+                            Choisir<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-repeat="choice in ssCat">
+                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <label>Catégorie</label>
+                    <div class="btn-group" dropdown>
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle"
+                                dropdown-toggle>
+                            Choisir<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-repeat="choice in ssCat">
+                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <label>Sous-Catégorie</label>
+                    <div class="btn-group" dropdown>
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle"
+                                dropdown-toggle>
+                            Choisir<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-repeat="choice in ssCat">
+                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div>
+
+                </div>
+
+                <div>
+                </div>
+
+                <div class="srpDisplayInline">
+                    <label>No. de Commande</label>
+                    <input class="srpNewTcktInput input-sm">
+                    <label>No. de Vente</label>
+                    <input class="srpNewTcktInput input-sm">
+                    <label>Ref. SRP</label>
+                    <input class="srpNewTcktInput input-sm">
+                </div>
+                <br><br>
+                <div>
+                    <label>Sujet</label>
+                    <input class="srpNewTcktInput input-sm">
+                </div>
+                <br>
+                <div>
+                    <label>
+                        <span class="glyphicon glyphicon-paperclip"></span> Fichier à joindre</label>
+                    <button class="glyphicon glyphicon-plus btn btn-success btn-sm"></button>
+                </div>
+                <br>
+                <div>
+                    <button class="btn btn-primary btn-block">
+                        <span class="glyphicon glyphicon-send"></span>
+                        <label class="srpSizeTextBtnSend">
+                            Envoyer le ticket</label>
+                    </button>
+                </div>
+            </div>
+        </tab>
+
+        <tab heading="Paramètres">
+            <br>
+            <div>
+                <label>Catégorie</label>
+                <input class="srpAlignCenter input-sm"
+                       placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+            </div>
+            <hr>
+            <div>
+                <label>Sous-Catégorie</label>
+                <input class="srpAlignCenter input-sm"
+                       placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
+            </div>
+        </tab>
+
+        <tab heading="Recherche">
+            <br>
+            <div>
+                <label for="inputDefault">No. de Ticket</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">No. de Commande</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">No. de Vente</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Nom</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Groupe</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label>Vente</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        Choisir<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>Priorité</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        Choisir<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>Catégorie</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        Choisir<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label class="">Sous-Catégorie</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        <div data-ng-if="userChoice !== false">
+                            {{ ssCat[userChoice] }}
+                            <span class="caret"></span></div>
+                        <div data-ng-if="userChoice === false">
+                            Choisir 
+                            <span class="caret"></span></div>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>+ 1 500€</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        Non<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label>Statut</label>
+                <div class="btn-group" dropdown>
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            dropdown-toggle>
+                        Choisir<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-ng-repeat="choice in ssCat">
+                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Date de début</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Date de fin</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Dernière action par</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary btn-block"> 
+                    <span class="glyphicon glyphicon-search"></span>                        
+                    <label class="srpSizeTextBtnSend">
+                    Recherche</label>
+                </button>
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-default btn-lg"> 
+                    <span class="glyphicon glyphicon-export"></span> Exporter vers Excel</button>
+            </div>
+
+        </tab>
+
+        <tab heading="Statistiques">
+            <p>Tab to see Wallboard CPM</p>
         </tab>
     </tabset>
-</div>
-
-
-
-<!--TABS WORKS BUT WITHOUT ANGULAR-->
-<!--Creating all the tabs and their contents (tabs for displaying tickets in the third ones)-->
-<!--
-<div class="bs-example">
-<ul class="nav nav-tabs" id="myTab">
-<li><a class="glyphicon glyphicon-envelope" data-toggle="tab" ng-href="#tickets-a-traiter"> Tickets à traiter</a></li>
-<li><a class="glyphicon glyphicon-exclamation-sign" data-toggle="tab" ng-href="#tickets-non-lus"> Tickets non lus</a></li>
-<li><a class="glyphicon glyphicon-send" data-toggle="tab" ng-href="#mes-tickets"> Mes tickets et tickets suivis</a></li>
-<li><a class="glyphicon glyphicon-plus" data-toggle="tab" ng-href="#nouveau-ticket"> Nouveau ticket</a></li>
-<li><a class="glyphicon glyphicon-cog" data-toggle="tab" ng-href="#parametre"> Paramètres</a></li>
-<li><a class="glyphicon glyphicon-search" data-toggle="tab" ng-href="#recherche"> Recherche</a></li>
-</ul>
-<div class="tab-content">
-<div id="tickets-a-traiter" class="tab-pane fade in active">
-<div>
-<tabset class="table table-hover">
-<tab> # </tab>
-<tab> Nom </tab>
-<tab> Sujet </tab>
-<tab> Priorité </tab>
-<tab> Avant/Après Vente </tab>
-<tab> Catégorie </tab>
-<tab> Sous-Catégorie </tab>
-<tab> No. de Commande </tab>
-<tab> No. de Vente </tab>
-<tab> Ref. SRP </tab>
-<tab> Date de Création </tab>
-<tab> Statut </tab>
-<tab> +1 500€ </tab>
-<tab> Date de Dernière Réponse </tab>
-<tab> Par </tab>
-</tabset>
-</div>
-</div>
-
-<div id="tickets-non-lus" class="tab-pane fade">
-<div>
-<tabset class="table table-hover">
-<tab> # </tab>
-<tab> Nom </tab>
-<tab> Sujet </tab>
-<tab> Priorité </tab>
-<tab> Avant/Après Vente </tab>
-<tab> Catégorie </tab>
-<tab> Sous-Catégorie </tab>
-<tab> No. de Commande </tab>
-<tab> No. de Vente </tab>
-<tab> Ref. SRP </tab>
-<tab> Date de Création </tab>
-<tab> Statut </tab>
-<tab> +1 500€ </tab>
-<tab> Date de Dernière Réponse </tab>
-<tab> Par </tab>
-</tabset>
-</div>
-</div>
-
-<div id="mes-tickets" class="tab-pane fade in active">
-<div>
-<tabset class="table table-hover">
-<tab> # </tab>
-<tab> Nom </tab>
-<tab> Sujet </tab>
-<tab> Priorité </tab>
-<tab> Avant/Après Vente </tab>
-<tab> Catégorie </tab>
-<tab> Sous-Catégorie </tab>
-<tab> No. de Commande </tab>
-<tab> No. de Vente </tab>
-<tab> Ref. SRP </tab>
-<tab> Date de Création </tab>
-<tab> Statut </tab>
-<tab> +1 500€ </tab>
-<tab> Date de Dernière Réponse </tab>
-<tab> Par </tab>
-</tabset>
-</div>
-</div>
-
-<div id="nouveau-ticket" class="tab-pane fade in active">
-<div>
-<div>
-<label>Priorité</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>Vente</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>Catégorie</label>
-<button> Choisir</button>
-<label>Sous-Catégorie</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>No. de Commande</label>
-<input>
-<label>No. de Vente</label>
-<input>
-<label>Ref. SRP</label>
-<input>
-</div>
-
-<div>
-<label>Sujet</label>
-<input>
-</div>
-
-<div>
-<label class="glyphicon glyphicon-paperclip"> Fichier à joindre</label>
-<input>    <button class="glyphicon glyphicon-plus"></button>
-</div>
-<button>Envoyer le ticket</button>
-</div>
 
 </div>
-
-<div id="parametre" class="tab-pane fade in active">
-<div>
-<label>Catégorie</label>
-<input placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
-</div>
-
-<div>
-<label>Sous-Catégorie</label>
-<input placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
-</div>
-</div>
-
-<div id="recherche" class="tab-pane fade in active">
-<div>
-<label>No. de Ticket</label>
-<input>
-</div>
-<div>
-<label>No. de Commande</label>
-<input>
-</div>
-<div>
-<label>No. de Vente</label>
-<input>
-</div>
-<div>
-<label>Nom</label>
-<input>
-</div>
-<div>
-<label>Groupe</label>
-<input>
-</div>
-<div>
-<label>Vente</label>
-<button> Choisir</button>
-</div>
-<div>
-<label>Priorité</label>
-<button> Choisir</button>
-</div>
-<div>
-<label>Catégorie</label>
-<button> Choisir</button>
-</div>
-<div>
-<label>Sous-Catégorie</label>
-<button> Choisir</button>
-</div>
-<div>
-<label>+ 1 500€</label>
-<button> Non</button>
-</div>
-<div>
-<label>Statut</label>
-<button> Choisir</button>
-</div>
-<div>
-<label>Date de fin</label>
-<input>
-</div>
-<div>
-<label>Date de fin</label>
-<input>
-</div>
-<div>
-<label>Dernière action par</label>
-<input>
-</div>
-<div>
-<button class="glyphicon glyphicon-search"> Envoyer le ticket</button>
-</div>
-<div>
-<button class="glyphicon glyphicon-export"> Exporter vers Excel</button>
-</div>
-</div>
-</div>
-</div>
--->
-<!--END OF TABS WITHOUT ANGULAR-->
-
-
-<!--
-<div>
-
-<table class="table table-condensed">
-<td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-envelope"> Tickets à traiter </a></td>
-<td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-exclamation-sign"> Tickets non lus </a></td>
-<td ng-click="toggle()"> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-send"> Mes tickets et tickets suivis </a></td>
-
-
-<td> <a ng-click="toggleNouveauTicket()" ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-plus"> Nouveau ticket </a>
--->
-<!--Div for the "New Ticket"'s tab-->
-<!--
-<div ng-show="testNouveauTicket">
-<div>
-<label>Priorité</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>Vente</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>Catégorie</label>
-<button> Choisir</button>
-<label>Sous-Catégorie</label>
-<button> Choisir</button>
-</div>
-
-<div>
-<label>No. de Commande</label>
-<input>
-<label>No. de Vente</label>
-<input>
-<label>Ref. SRP</label>
-<input>
-</div>
-
-<div>
-<label>Sujet</label>
-<input>
-</div>
-
-<div>
-<label class="glyphicon glyphicon-paperclip"> Fichier à joindre</label>
-<input>    <button class="glyphicon glyphicon-plus"></button>
-</div>
-<button>Envoyer le ticket</button>
-</div>
-</td>
-
-
-<td> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-cog"> Paramètres </a>
-<div>
-<label>Catégorie</label>
-<input placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
-</div>
-
-<div>
-<label>Sous-Catégorie</label>
-<input placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
-</div>
-</td>
-
-
-<td> <a ng-href="http://localhost:9000/#/demandes-cpm" class="glyphicon glyphicon-search"> Recherche </a></td>
-</table>
-
-</div>
--->
-
-<!--Table where the tickets are displayed-->
-<!--
-<div ng-hide="test">
-<tabset class="table table-hover">
-<tab> # </tab>
-<tab> Nom </tab>
-<tab> Sujet </tab>
-<tab> Priorité </tab>
-<tab> Avant/Après Vente </tab>
-<tab> Catégorie </tab>
-<tab> Sous-Catégorie </tab>
-<tab> No. de Commande </tab>
-<tab> No. de Vente </tab>
-<tab> Ref. SRP </tab>
-<tab> Date de Création </tab>
-<tab> Statut </tab>
-<tab> +1 500€ </tab>
-<tab> Date de Dernière Réponse </tab>
-<tab> Par </tab>
-</tabset>
-</div>-->

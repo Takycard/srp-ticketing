@@ -15,7 +15,7 @@ angular.module('srpTicketingApp')
         'Karma'
     ];
     $scope.tabs = [
-        { title:'Ticket à traiter', content:'Tab for displaying the untreated tickets' },
+        { title:'Tickets à traiter', content:'Tab for displaying the untreated tickets' },
         { title:'Tickets du groupe', content:'Tab for displaying the group\'s tickets' },
         { title:'Nouveau ticket', content:'Tab for creating new tickets' },
         { title:'Paramètres', content:'Tab for creating new categories and subcategories' },

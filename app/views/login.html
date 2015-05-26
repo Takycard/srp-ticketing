@@ -4,14 +4,14 @@
 <form role="form">
     <p class="form-group">
         <label for="loginEmail" class="glyphicon glyphicon-envelope"></label>
-        <input id="loginEmail" required name="email" type="email" ng-model="email" />
+        <input id="loginEmail" required name="email" type="email" ng-model="email" class="srpNewTcktInput input-sm"/>
     </p>
     <p class="form-group">
         <label for="loginPass" class="glyphicon glyphicon-lock"></label>
-        <input id="loginPass" required name="pass" type="password" ng-model="pass" />
+        <input id="loginPass" required name="pass" type="password" ng-model="pass" class="srpNewTcktInput input-sm"/>
     </p>
     <p>
-        <button  ng-click="passwordLogin(email, pass)" class="glyphicon glyphicon-log-in"> Log In</button>
+        <button  ng-click="passwordLogin(email, pass)"><span class="glyphicon glyphicon-log-in"></span> Log In</button>
         <!--
 <button  ng-click="createMode = true" ng-hide="createMode">Register</button>
 <button  ng-cloak ng-show="createMode"
