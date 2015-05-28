@@ -6,8 +6,8 @@ a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .srpNewTcktInput {
     display: inline-block;
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
 }
 
 .srpAlignCenter {
@@ -21,6 +21,16 @@ a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 }
 
 .srpSizeTextBtnSend {
+    text-align: center;
     font-family: monospace;
     font-size: 20px;
+}
+
+#srpTextArea {
+    width: 100em;
+    height: 12em;
+    line-height: 1.33;
+    max-height: 24em;
+    min-height: 8em;
+    resize: vertical;
 }

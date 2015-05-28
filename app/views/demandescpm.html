@@ -1,5 +1,7 @@
-<div>
+<div data-ng-controller="DemandescpmCtrl">
     <tabset>
+
+        <!--    Create the To threat tickets tab-->
         <tab heading="Tickets à traiter">
             <br>
             <div>
@@ -29,7 +31,9 @@
                 </tr>
             </table>
         </tab>
+        <!--    End of To threat tickets tab-->
 
+        <!--    Create the Unread tickets tab-->
         <tab heading="Tickets non lus">
             <br>
             <table class="table">
@@ -52,7 +56,9 @@
                 </tr>
             </table>
         </tab>
+        <!--    End of Unread tickets tab-->
 
+        <!--    Create the Follow tickets tab-->
         <tab heading="Mes tickets et tickets suivis">
             <br>
             <table class="table">
@@ -76,7 +82,9 @@
             </table>
 
         </tab>
+        <!--    End of Follow tickets tab-->
 
+        <!--    Create the New tickets tab-->
         <tab heading="Nouveau Ticket">
             <br>
             <div>
@@ -137,44 +145,52 @@
                         </ul>
                     </div>
                 </div>
-                <br>
+                <hr>
                 <div>
 
                 </div>
 
                 <div>
                 </div>
-
-                <div class="srpDisplayInline">
-                    <label>No. de Commande</label>
-                    <input class="srpNewTcktInput input-sm">
-                    <label>No. de Vente</label>
-                    <input class="srpNewTcktInput input-sm">
-                    <label>Ref. SRP</label>
-                    <input class="srpNewTcktInput input-sm">
-                </div>
-                <br><br>
-                <div>
-                    <label>Sujet</label>
-                    <input class="srpNewTcktInput input-sm">
-                </div>
-                <br>
-                <div>
-                    <label>
-                        <span class="glyphicon glyphicon-paperclip"></span> Fichier à joindre</label>
-                    <button class="glyphicon glyphicon-plus btn btn-success btn-sm"></button>
-                </div>
-                <br>
-                <div>
-                    <button class="btn btn-primary btn-block">
-                        <span class="glyphicon glyphicon-send"></span>
-                        <label class="srpSizeTextBtnSend">
-                            Envoyer le ticket</label>
-                    </button>
-                </div>
+                <form ng-submit="addMessage()">
+                    <div class="srpDisplayInline">
+                        <label>No. de Commande</label>
+                        <input class="srpNewTcktInput input-sm">
+                        <label>No. de Vente</label>
+                        <input class="srpNewTcktInput input-sm">
+                        <label>Ref. SRP</label>
+                        <input class="srpNewTcktInput input-sm">
+                    </div>
+                    <br><br>
+                    <div>
+                        <label>Sujet</label>
+                        <input class="srpNewTcktInput input-sm">
+                    </div>
+                    <hr>
+                    <div>
+                        <label>Message</label>
+                        <textarea data-ng-model="newTicketText" id="srpTextArea"></textarea>
+                    </div>
+                    <br>
+                    <div>
+                        <label>
+                            <span class="glyphicon glyphicon-paperclip"></span> Fichier à joindre</label>
+                        <button class="glyphicon glyphicon-plus btn btn-success btn-sm"></button>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block srpPositionBtnSend">
+                            <span class="glyphicon glyphicon-send"></span>
+                            <label class="srpSizeTextBtnSend">
+                                Envoyer le ticket</label>
+                        </button>
+                    </div>
+                </form>
             </div>
         </tab>
+        <!--    End of New tickets tab-->
 
+        <!--        Create Param. tab-->
         <tab heading="Paramètres">
             <br>
             <div>
@@ -188,8 +204,11 @@
                 <input class="srpAlignCenter input-sm"
                        placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
             </div>
-        </tab>
 
+        </tab>
+        <!--    End of Param. tab-->
+
+        <!--        Create the Research tab-->
         <tab heading="Recherche">
             <br>
             <div>
@@ -275,7 +294,7 @@
                             {{ ssCat[userChoice] }}
                             <span class="caret"></span></div>
                         <div data-ng-if="userChoice === false">
-                            Choisir 
+                            Choisir
                             <span class="caret"></span></div>
                     </button>
                     <ul class="dropdown-menu" role="menu">
@@ -336,9 +355,9 @@
             <br>
             <div>
                 <button class="btn btn-primary btn-block"> 
-                    <span class="glyphicon glyphicon-search"></span>                        
+                    <span class="glyphicon glyphicon-search"></span>
                     <label class="srpSizeTextBtnSend">
-                    Recherche</label>
+                        Recherche</label>
                 </button>
             </div>
             <br>
@@ -346,12 +365,14 @@
                 <button class="btn btn-default btn-lg"> 
                     <span class="glyphicon glyphicon-export"></span> Exporter vers Excel</button>
             </div>
-
         </tab>
+        <!--    End of Research tab-->
 
+        <!--        Create the Stat tab-->
         <tab heading="Statistiques">
             <p>Tab to see Wallboard CPM</p>
         </tab>
+        <!--    End of Stat. tab-->
     </tabset>
 
 </div>
