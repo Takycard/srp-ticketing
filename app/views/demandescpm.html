@@ -11,7 +11,7 @@
                 </button>
             </div>
             <br>
-            <table class="table">
+            <table class="table table-striped">
                 <tr class="srpPink">
                     <th> # </th>
                     <th > Nom </th>
@@ -36,7 +36,7 @@
         <!--    Create the Unread tickets tab-->
         <tab heading="Tickets non lus">
             <br>
-            <table class="table">
+            <table class="table table-striped">
                 <tr class="srpPink">
                     <th > # </th>
                     <th > Nom </th>
@@ -61,7 +61,7 @@
         <!--    Create the Follow tickets tab-->
         <tab heading="Mes tickets et tickets suivis">
             <br>
-            <table class="table">
+            <table class="table table-striped">
                 <tr class="srpPink">
                     <th > # </th>
                     <th > Nom </th>
@@ -152,24 +152,25 @@
 
                 <div>
                 </div>
-                <form ng-submit="addMessage()">
-                    <div class="srpDisplayInline">
-                        <label>No. de Commande</label>
-                        <input class="srpNewTcktInput input-sm">
-                        <label>No. de Vente</label>
-                        <input class="srpNewTcktInput input-sm">
-                        <label>Ref. SRP</label>
-                        <input class="srpNewTcktInput input-sm">
-                    </div>
-                    <br><br>
-                    <div>
-                        <label>Sujet</label>
-                        <input class="srpNewTcktInput input-sm">
-                    </div>
-                    <hr>
+
+                <div class="srpDisplayInline">
+                    <label>No. de Commande</label>
+                    <input class="srpNewTcktInput input-sm">
+                    <label>No. de Vente</label>
+                    <input class="srpNewTcktInput input-sm">
+                    <label>Ref. SRP</label>
+                    <input class="srpNewTcktInput input-sm">
+                </div>
+                <br><br>
+                <div>
+                    <label>Sujet</label>
+                    <input class="srpNewTcktInput input-sm">
+                </div>
+                <hr>
+                <form >
                     <div>
                         <label>Message</label>
-                        <textarea data-ng-model="newTicketText" id="srpTextArea"></textarea>
+                        <textarea id="srpTextArea"></textarea>
                     </div>
                     <br>
                     <div>
@@ -193,16 +194,55 @@
         <!--        Create Param. tab-->
         <tab heading="Paramètres">
             <br>
+<!--
             <div>
-                <label>Catégorie</label>
-                <input class="srpAlignCenter input-sm"
-                       placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+                <form data-ng-submit="addCat()">
+                    <label>Catégorie</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="cat"
+                           placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <li data-ng-repeat="cat in cats">
+                        {{s.content}}
+                        <a href="" data-ng-click="cats.$remove(cat)">x</a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+-->
+
+            <div>
+                <form data-ng-submit="addCat()">
+                    <label>Catégorie</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="cat"
+                           placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <li data-ng-repeat="cat in cats">
+                        {{cat.content}}
+                        <a href="" data-ng-click="cats.$remove(cat)">x</a>
+                    </li>
+                </ul>
             </div>
             <hr>
             <div>
-                <label>Sous-Catégorie</label>
-                <input class="srpAlignCenter input-sm"
-                       placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
+                <form data-ng-submit="addSsCat()">
+                    <label>Sous-Catégorie</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="ssCat"
+                           placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <li data-ng-repeat="ssCat in ssCats">
+                        {{ssCat.content}}
+                        <a href="" data-ng-click="ssCats.$remove(ssCat)">x</a>
+                    </li>
+                </ul>
             </div>
 
         </tab>

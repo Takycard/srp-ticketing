@@ -8,25 +8,46 @@
  * Controller of the srpTicketingApp
  */
 angular.module('srpTicketingApp')
-    .controller('DemandescpmCtrl', function ($scope, $firebaseArray) {
+.controller('DemandescpmCtrl', ['$scope', 'srpCat', 'srpSsCat',
+            function ($scope, srpCat, srpSsCat) {
 
-    var ref = new Firebase("https://srp-ticketing.firebaseio.com/demandes-cpm");
+                $scope.userChoice = false;
 
-    $scope.ssCat = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-    ];
+                // create a synchronized array for category
+                $scope.cats = srpCat;
+                $scope.cat = "";
 
-    $scope.userChoice = false;
+                // create a synchronized array for category
+                $scope.ssCats = srpSsCat;
+                $scope.ssCat = "";
 
-    // create a synchronized array
-    $scope.tickets = $firebaseArray(ref);
-    // add new items to the array
-    // the message is automatically added to Firebase!
-    $scope.addTicket = function() {
-        $scope.tickets.$add({
-            text: $scope.newTicketText
-        });
-    };
-});
+//                $scope.ssCat = [
+//                    'Test',
+//                    'Blabla'
+//                ];
+                $scope.addCat = function() {
+                    $scope.cats.$add({
+                        content: $scope.cat
+                        });
+                }
+
+                $scope.addSsCat = function() {
+                    $scope.ssCats.$add({
+                        content: $scope.ssCat
+                    });
+                }
+            }
+        ])
+
+.factory("srpCat", ["$firebaseArray", function($firebaseArray) {
+    var ref = new Firebase("https://srp-ticketing.firebaseio.com/category");
+
+    return $firebaseArray(ref);
+}
+                    ])
+.factory("srpSsCat", ["$firebaseArray", function($firebaseArray) {
+    var ref = new Firebase("https://srp-ticketing.firebaseio.com/ss-category");
+
+    return $firebaseArray(ref);
+}
+                    ]);

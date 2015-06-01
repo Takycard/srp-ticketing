@@ -30,7 +30,9 @@
                             <li><a class="glyphicon glyphicon-home" href="#/"></a></li>
                             <!--                            <li class="active"><a href="#/">Home</a></li>-->
                             <!-- //angularfire -->
-                            <li><a ng-href="#/chat"><span ></span>Chat</a></li>
+                            <li><a ng-href="#/chat">
+                                <span class="glyphicon glyphicon-comment"></span>
+                                Chat</a></li>
 
                             <li>
                                 <a ng-show-auth="" href="#/demandes-cpm"> 
@@ -94,20 +96,20 @@
 
             <!-- build:js({.tmp,app}) scripts/scripts.js -->
             <script src="scripts/app.js"></script>
-            <script src="scripts/controllers/main.js"></script>
             <script src="scripts/angularfire/config.js"></script>
             <script src="scripts/angularfire/firebase.ref.js"></script>
-            <script src="scripts/controllers/chat.js"></script>
             <script src="scripts/filters/reverse.js"></script>
             <script src="scripts/angularfire/auth.js"></script>
+            <script src="scripts/controllers/main.js"></script>
+            <script src="scripts/controllers/chat.js"></script>
             <script src="scripts/controllers/login.js"></script>
             <script src="scripts/controllers/demandescpm.js"></script>
             <script src="scripts/controllers/tickets-escalade.js"></script>
             <script src="scripts/controllers/account.js"></script>
+            <script src="scripts/controllers/administration.js"></script>
             <script src="scripts/directives/ngShowAuth.js"></script>
             <script src="scripts/directives/ngHideAuth.js"></script>
             <script src="scripts/routes.js"></script>
-            <script src="scripts/controllers/administration.js"></script>
             <!-- endbuild -->
             </body>
         </html>
