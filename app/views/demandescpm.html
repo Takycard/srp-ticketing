@@ -194,29 +194,27 @@
         <!--        Create Param. tab-->
         <tab heading="Paramètres">
             <br>
-<!--
             <div>
-                <form data-ng-submit="addCat()">
-                    <label>Catégorie</label>
-                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="cat"
-                           placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
+                <form data-ng-submit="addStatut(statut)">
+                    <label>Statut</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="statut"
+                           placeholder="Entrez un nouveau statut puis appuyez sur la touche entrée">
                 </form>
             </div>
             <div>
                 <ul>
-                    <li data-ng-repeat="cat in cats">
-                        {{s.content}}
-                        <a href="" data-ng-click="cats.$remove(cat)">x</a>
+                    <li data-ng-repeat="statut in statuts">
+                        {{statut.content}}
+                        <a href="" data-ng-click="statuts.$remove(statut)">x</a>
                     </li>
                 </ul>
             </div>
             <hr>
--->
 
             <div>
-                <form data-ng-submit="addCat()">
+                <form data-ng-submit="addCat(cat)">
                     <label>Catégorie</label>
-                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="cat"
+                    <input class="srpAlignCenter input-sm" type="text" ng-model="cat"
                            placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
                 </form>
             </div>
@@ -229,8 +227,9 @@
                 </ul>
             </div>
             <hr>
+
             <div>
-                <form data-ng-submit="addSsCat()">
+                <form data-ng-submit="addSsCat(ssCat)">
                     <label>Sous-Catégorie</label>
                     <input class="srpAlignCenter input-sm" type="text" data-ng-model="ssCat"
                            placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
