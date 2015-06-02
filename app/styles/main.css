@@ -1,5 +1,10 @@
 a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.srpDropdown {
+
+    cursor: pointer;
+    box-sizing: content-box;
+}
 .srpPink {
     color: #dd0cb4;
 }

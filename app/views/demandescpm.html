@@ -89,61 +89,97 @@
             <br>
             <div>
                 <div>
-                    <label>Priorité</label>
-                    <div class="btn-group" dropdown>
-                        <button type="button"
-                                class="btn btn-default dropdown-toggle"
-                                dropdown-toggle>
-                            Choisir<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li data-ng-repeat="choice in ssCat">
-                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                            </li>
-                        </ul>
+                    <div>
+                        <label>Priorité</label>
+                        <select class="srpDropdown" data-ng-model="prio">
+                            <option data-ng-repeat="prio in srpPrios">{{ prio.content }}</option>
+                        </select>
                     </div>
-                    <br><br>
-                    <label>Vente</label>
-                    <div class="btn-group" dropdown>
-                        <button type="button"
-                                class="btn btn-default dropdown-toggle"
-                                dropdown-toggle>
-                            Choisir<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li data-ng-repeat="choice in ssCat">
-                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                            </li>
-                        </ul>
+
+                    <br>
+
+                    <div>
+                        <label>Vente</label>
+                        <select class="srpDropdown" data-ng-model="vente">
+                            <option data-ng-repeat="vente in srpVentes">{{ vente.content }}</option>
+                        </select>
                     </div>
-                    <br><br>
-                    <label>Catégorie</label>
-                    <div class="btn-group" dropdown>
-                        <button type="button"
-                                class="btn btn-default dropdown-toggle"
-                                dropdown-toggle>
-                            Choisir<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li data-ng-repeat="choice in ssCat">
-                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                            </li>
-                        </ul>
+
+                    <br>
+
+                    <div>
+                        <label>Catégorie</label>
+                        <select class="srpDropdown" data-ng-model="cat">
+                            <option data-ng-repeat="cat in srpCategories">{{ cat.content }}</option>
+                        </select>
                     </div>
-                    <br><br>
-                    <label>Sous-Catégorie</label>
-                    <div class="btn-group" dropdown>
-                        <button type="button"
-                                class="btn btn-default dropdown-toggle"
-                                dropdown-toggle>
-                            Choisir<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li data-ng-repeat="choice in ssCat">
-                                <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                            </li>
-                        </ul>
+
+                    <br>
+
+                    <div>
+                        <label>Sous-Catégorie</label>
+                        <select class="srpDropdown" data-ng-model="subCat">
+                            <option data-ng-repeat="subCat in srpSubCategories">{{ subCat.content }}</option>
+                        </select>
                     </div>
+
+                    <!--
+<label>Priorité</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpPrios">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<label>Vente</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpVentes">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<br><br>
+
+<label>Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<br><br>
+<label>Sous-Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpSubCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+-->
                 </div>
                 <hr>
                 <div>
@@ -203,9 +239,46 @@
             </div>
             <div>
                 <ul>
-                    <li data-ng-repeat="statut in statuts">
+                    <br>
+                    <li class="list-group-item list-group-item-success" data-ng-repeat="statut in srpStatuts">
                         {{statut.content}}
-                        <a href="" data-ng-click="statuts.$remove(statut)">x</a>
+                        <a href="" data-ng-click="srpStatuts.$remove(statut)">x</a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+
+            <div>
+                <form data-ng-submit="addPrio(prio)">
+                    <label>Priorité</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="prio"
+                           placeholder="Entrez une nouvelle priorité puis appuyez sur la touche entrée">
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <br>
+                    <li class="list-group-item list-group-item-warning" data-ng-repeat="prio in srpPrios">
+                        {{prio.content}}
+                        <a href="" data-ng-click="srpPrios.$remove(prio)">x</a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+
+            <div>
+                <form data-ng-submit="addVente(vente)">
+                    <label>Vente</label>
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="vente"
+                           placeholder="Entrez une nouvelle vente puis appuyez sur la touche entrée">
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <br>
+                    <li class="list-group-item list-group-item-danger" data-ng-repeat="vente in srpVentes">
+                        {{vente.content}}
+                        <a href="" data-ng-click="srpVentes.$remove(vente)">x</a>
                     </li>
                 </ul>
             </div>
@@ -220,26 +293,28 @@
             </div>
             <div>
                 <ul>
-                    <li data-ng-repeat="cat in cats">
+                    <br>
+                    <li class="list-group-item list-group-item-info" data-ng-repeat="cat in srpCategories">
                         {{cat.content}}
-                        <a href="" data-ng-click="cats.$remove(cat)">x</a>
+                        <a href="" data-ng-click="srpCategories.$remove(cat)">x</a>
                     </li>
                 </ul>
             </div>
             <hr>
 
             <div>
-                <form data-ng-submit="addSsCat(ssCat)">
+                <form data-ng-submit="addSubCat(subCat)">
                     <label>Sous-Catégorie</label>
-                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="ssCat"
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="subCat"
                            placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
                 </form>
             </div>
             <div>
                 <ul>
-                    <li data-ng-repeat="ssCat in ssCats">
-                        {{ssCat.content}}
-                        <a href="" data-ng-click="ssCats.$remove(ssCat)">x</a>
+                    <br>
+                    <li class="list-group-item list-group-item-info" data-ng-repeat="subCat in srpSubCategories">
+                        {{subCat.content}}
+                        <a href="" data-ng-click="srpSubCategories.$remove(subCat)">x</a>
                     </li>
                 </ul>
             </div>
@@ -276,107 +351,163 @@
             </div>
             <br>
             <div>
-                <label>Vente</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        Choisir<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
+                <div>
+                    <label>Priorité</label>
+                    <select class="srpDropdown" data-ng-model="prio">
+                        <option data-ng-repeat="prio in srpPrios">{{ prio.content }}</option>
+                    </select>
                 </div>
-            </div>
-            <br>
-            <div>
-                <label>Priorité</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        Choisir<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <div>
-                <label>Catégorie</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        Choisir<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <div>
-                <label class="">Sous-Catégorie</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        <div data-ng-if="userChoice !== false">
-                            {{ ssCat[userChoice] }}
-                            <span class="caret"></span></div>
-                        <div data-ng-if="userChoice === false">
-                            Choisir
-                            <span class="caret"></span></div>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
 
+                <br>
+
+                <div>
+                    <label>Vente</label>
+                    <select class="srpDropdown" data-ng-model="vente">
+                        <option data-ng-repeat="vente in srpVentes">{{ vente.content }}</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label>Statut</label>
+                    <select class="srpDropdown" data-ng-model="statut">
+                        <option data-ng-repeat="statut in srpStatuts">{{ statut.content }}</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label>Catégorie</label>
+                    <select class="srpDropdown" data-ng-model="cat">
+                        <option data-ng-repeat="cat in srpCategories">{{ cat.content }}</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label>Sous-Catégorie</label>
+                    <select class="srpDropdown" data-ng-model="subCat">
+                        <option data-ng-repeat="subCat in srpSubCategories">{{ subCat.content }}</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label>+ 1500</label>
+                    <select class="srpDropdown">
+                        <option data-ng-repeat="choice in thousandFive">{{ choice }}</option>
+                    </select>
                 </div>
             </div>
             <br>
-            <div>
-                <label>+ 1 500€</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        Non<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <div>
-                <label>Statut</label>
-                <div class="btn-group" dropdown>
-                    <button type="button"
-                            class="btn btn-default dropdown-toggle"
-                            dropdown-toggle>
-                        Choisir<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li data-ng-repeat="choice in ssCat">
-                            <a data-ng-click="userChoice = $index">{{ choice }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
+
+            <!--
+<label>Vente</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpVentes">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<div>
+<label>Priorité</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpPrios">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<div>
+<label>Statut</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpStatuts">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<div>
+<label>Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<div>
+<label class="">Sous-Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+<div data-ng-if="userChoice !== false">
+{{ subCat[userChoice] }}
+<span class="caret"></span></div>
+<div data-ng-if="userChoice === false">
+Choisir
+<span class="caret"></span></div>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpSubCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+
+</div>
+
+
+<div>
+<label>+ 1 500€</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Non<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in subCat">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+</div>
+-->
+
             <div>
                 <label for="inputDefault">Date de début</label>
                 <input class="srpAlignCenter input-sm" id="inputDefault" type="text">

@@ -9,45 +9,71 @@
  */
 angular.module('srpTicketingApp')
 .controller('DemandescpmCtrl', ['$scope', 'srpStatut', 'srpCat',
-            'srpSsCat',
-            function ($scope, srpStatut, srpCat, srpSsCat) {
+            'srpSubCat', 'srpPrio', 'srpVente',
+            function ($scope, srpStatut, srpCat,
+                        srpSubCat, srpPrio, srpVente) {
 
                 $scope.userChoice = false;
+                $scope.thousandFive = [
+                    'Non',
+                    'Oui'
+                ];
 
-                // create a synchronized array for category
-                $scope.statuts = srpStatut;
+                // create a synchronized array for priorities
+                $scope.srpPrios = srpPrio;
+                // create a synchronized array for sales
+                $scope.srpVentes= srpVente;
+                // create a synchronized array for status
+                $scope.srpStatuts = srpStatut;
+                // create a synchronized array for categories
+                $scope.srpCategories = srpCat;
+                // create a synchronized array for subcategories
+                $scope.srpSubCategories = srpSubCat;
 
-                // create a synchronized array for category
-                $scope.cats = srpCat;
+                $scope.addPrio = function(prio) {
+                    $scope.srpPrios.$add({
+                        content: prio
+                        });
+                }
 
-                // create a synchronized array for category
-                $scope.ssCats = srpSsCat;
-
-//                $scope.ssCat = [
-//                    'Test',
-//                    'Blabla'
-//                ];
+                $scope.addVente = function(vente) {
+                    $scope.srpVentes.$add({
+                        content: vente
+                        });
+                }
 
                 $scope.addStatut = function(statut) {
-                    $scope.statuts.$add({
+                    $scope.srpStatuts.$add({
                         content: statut
                         });
                 }
 
                 $scope.addCat = function(cat) {
-                    $scope.cats.$add({
+                    $scope.srpCategories.$add({
                         content: cat
                         });
                 }
 
-                $scope.addSsCat = function(ssCat) {
-                    $scope.ssCats.$add({
-                        content: ssCat
+                $scope.addSubCat = function(subCat) {
+                    $scope.srpSubCategories.$add({
+                        content: subCat
                     });
                 }
             }
         ])
 
+.factory("srpPrio", ["$firebaseArray", function($firebaseArray) {
+    var ref = new Firebase("https://srp-ticketing.firebaseio.com/priority");
+
+    return $firebaseArray(ref);
+}
+                    ])
+.factory("srpVente", ["$firebaseArray", function($firebaseArray) {
+    var ref = new Firebase("https://srp-ticketing.firebaseio.com/sale");
+
+    return $firebaseArray(ref);
+}
+                    ])
 .factory("srpStatut", ["$firebaseArray", function($firebaseArray) {
     var ref = new Firebase("https://srp-ticketing.firebaseio.com/statut");
 
@@ -60,7 +86,7 @@ angular.module('srpTicketingApp')
     return $firebaseArray(ref);
 }
                     ])
-.factory("srpSsCat", ["$firebaseArray", function($firebaseArray) {
+.factory("srpSubCat", ["$firebaseArray", function($firebaseArray) {
     var ref = new Firebase("https://srp-ticketing.firebaseio.com/ss-category");
 
     return $firebaseArray(ref);

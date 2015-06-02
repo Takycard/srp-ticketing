@@ -7,7 +7,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module('srpTicketingApp')
-.controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
+    .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
     $scope.messages = [];
@@ -24,22 +24,22 @@ angular.module('srpTicketingApp')
         }
         else {
             Auth.$changePassword({email: profile.email, oldPassword: oldPass, newPassword: newPass})
-            .then(function() {
+                .then(function() {
                 success('Password changed');
             }, error);
         }
     };
 
-//    $scope.changeEmail = function(pass, newEmail) {
-//        $scope.err = null;
-//        Auth.$changeEmail({password: pass, newEmail: newEmail, oldEmail: profile.email})
-//        .then(function() {
-//            profile.email = newEmail;
-//            profile.$save();
-//            success('Email changed');
-//        })
-//        .catch(error);
-//    };
+    //    $scope.changeEmail = function(pass, newEmail) {
+    //        $scope.err = null;
+    //        Auth.$changeEmail({password: pass, newEmail: newEmail, oldEmail: profile.email})
+    //        .then(function() {
+    //            profile.email = newEmail;
+    //            profile.$save();
+    //            success('Email changed');
+    //        })
+    //        .catch(error);
+    //    };
 
     function error(err) {
         alert(err, 'danger');
