@@ -12,23 +12,45 @@
             </div>
             <br>
             <table class="table table-striped">
-                <tr class="srpPink">
-                    <th> # </th>
-                    <th > Nom </th>
-                    <th > Sujet </th>
-                    <th > Priorité </th>
-                    <th > Avant/Après Vente </th>
-                    <th > Catégorie </th>
-                    <th > Sous-Catégorie </th>
-                    <th > No. de Commande </th>
-                    <th > No. de Vente </th>
-                    <th > Ref. SRP </th>
-                    <th > Date de Création </th>
-                    <th > Statut </th>
-                    <th > +1500€ </th>
-                    <th > Date de Dernière Réponse </th>
-                    <th > Par </th>
-                </tr>
+                <thead class="srpTableHead">
+                    <tr class="srpPink">
+                        <th > # </th>
+                        <th > Nom </th>
+                        <th > Sujet </th>
+                        <th > Priorité </th>
+                        <th > Avant/Après Vente </th>
+                        <th > Catégorie </th>
+                        <th > Sous-Catégorie </th>
+                        <th > No. de Commande </th>
+                        <th > No. de Vente </th>
+                        <th > Ref. SRP </th>
+                        <th > Date de Création </th>
+                        <th > Statut </th>
+                        <th > +1500€ </th>
+                        <th > Date de Dernière Réponse </th>
+                        <th > Par </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <p>Ceci est un test</p>
+                    <tr data-ng-repeat="tckt in srpNewTckt">
+                        <td>  </td>
+                        <td > Nom </td>
+                        <td > {{tckt.subj}} </td>
+                        <td > {{tckt.prio}} </td>
+                        <td > {{tckt.vente}} </td>
+                        <td > {{tckt.cats}} </td>
+                        <td > {{tckt.subCat}} </td>
+                        <td > {{tckt.noComm}} </td>
+                        <td > {{tckt.noSale}} </td>
+                        <td > {{tckt.refSrp}} </td>
+                        <td > Date de Création </td>
+                        <td > Statut </td>
+                        <td > Non </td>
+                        <td > Date de Dernière Réponse </td>
+                        <td > Par </td>
+                    </tr>
+                </tbody>
             </table>
         </tab>
         <!--    End of To threat tickets tab-->
@@ -37,23 +59,29 @@
         <tab heading="Tickets non lus">
             <br>
             <table class="table table-striped">
-                <tr class="srpPink">
-                    <th > # </th>
-                    <th > Nom </th>
-                    <th > Sujet </th>
-                    <th > Priorité </th>
-                    <th > Avant/Après Vente </th>
-                    <th > Catégorie </th>
-                    <th > Sous-Catégorie </th>
-                    <th > No. de Commande </th>
-                    <th > No. de Vente </th>
-                    <th > Ref. SRP </th>
-                    <th > Date de Création </th>
-                    <th > Statut </th>
-                    <th > +1500€ </th>
-                    <th > Date de Dernière Réponse </th>
-                    <th > Par </th>
-                </tr>
+                <thead>
+                    <tr class="srpPink">
+                        <th > # </th>
+                        <th > Nom </th>
+                        <th > Sujet </th>
+                        <th > Priorité </th>
+                        <th > Avant/Après Vente </th>
+                        <th > Catégorie </th>
+                        <th > Sous-Catégorie </th>
+                        <th > No. de Commande </th>
+                        <th > No. de Vente </th>
+                        <th > Ref. SRP </th>
+                        <th > Date de Création </th>
+                        <th > Statut </th>
+                        <th > +1500€ </th>
+                        <th > Date de Dernière Réponse </th>
+                        <th > Par </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
             </table>
         </tab>
         <!--    End of Unread tickets tab-->
@@ -62,23 +90,29 @@
         <tab heading="Mes tickets et tickets suivis">
             <br>
             <table class="table table-striped">
-                <tr class="srpPink">
-                    <th > # </th>
-                    <th > Nom </th>
-                    <th > Sujet </th>
-                    <th > Priorité </th>
-                    <th > Avant/Après Vente </th>
-                    <th > Catégorie </th>
-                    <th > Sous-Catégorie </th>
-                    <th > No. de Commande </th>
-                    <th > No. de Vente </th>
-                    <th > Ref. SRP </th>
-                    <th > Date de Création </th>
-                    <th > Statut </th>
-                    <th > +1500€ </th>
-                    <th > Date de Dernière Réponse </th>
-                    <th > Par </th>
-                </tr>
+                <thead>
+                    <tr class="srpPink">
+                        <th > # </th>
+                        <th > Nom </th>
+                        <th > Sujet </th>
+                        <th > Priorité </th>
+                        <th > Avant/Après Vente </th>
+                        <th > Catégorie </th>
+                        <th > Sous-Catégorie </th>
+                        <th > No. de Commande </th>
+                        <th > No. de Vente </th>
+                        <th > Ref. SRP </th>
+                        <th > Date de Création </th>
+                        <th > Statut </th>
+                        <th > +1500€ </th>
+                        <th > Date de Dernière Réponse </th>
+                        <th > Par </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
             </table>
 
         </tab>
@@ -87,143 +121,88 @@
         <!--    Create the New tickets tab-->
         <tab heading="Nouveau Ticket">
             <br>
-            <div>
+            <form name="helpForm" data-ng-submit="addNewTicket(prio, vente, cats,
+                                                  subCats, newNumComm, newNumSale,
+                                                  newRefSrp, newSubject, newMsg)">
                 <div>
                     <div>
-                        <label>Priorité</label>
-                        <select class="srpDropdown" data-ng-model="prio">
-                            <option data-ng-repeat="prio in srpPrios">{{ prio.content }}</option>
-                        </select>
+                        <div>
+                            <label>Priorité</label>
+                            <select class="srpDropdown" data-ng-model="prio"
+                                    data-ng-options="prio.content for prio in srpPrios" required>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <label>Vente</label>
+                            <select class="srpDropdown" data-ng-model="vente"
+                                    data-ng-options="vente.content for vente in srpVentes" required>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <label>Catégorie</label>
+                            <select class="srpDropdown" data-ng-model="cats"
+                                    data-ng-options="cats.content for cats in srpCategories" required>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <label>Sous-Catégorie</label>
+                            <select class="srpDropdown" data-ng-model="subCats"
+                                    data-ng-options="subCats.content for subCats in srpSubCategories"required>
+                            </select>
+                        </div>
                     </div>
-
-                    <br>
-
+                    <hr>
+                    <div class="srpDisplayInline">
+                        <label>No. de Commande</label>
+                        <input class="srpNewTcktInput input-sm" type="text" data-ng-model="newNumComm"
+                               placeholder="Entrez un numéro de commande">
+                        <label>No. de Vente</label>
+                        <input class="srpNewTcktInput input-sm" type="text" data-ng-model="newNumSale"
+                               placeholder="Entrez un numéro de vente">
+                        <label>Ref. SRP</label>
+                        <input class="srpNewTcktInput input-sm" type="text" data-ng-model="newRefSrp"
+                               placeholder="Entrez une référence SRP">
+                    </div>
+                    <br><br>
                     <div>
-                        <label>Vente</label>
-                        <select class="srpDropdown" data-ng-model="vente">
-                            <option data-ng-repeat="vente in srpVentes">{{ vente.content }}</option>
-                        </select>
+                        <label>Sujet</label>
+                        <input class="srpNewTcktInput input-sm" type="text"
+                               data-ng-model="newSubject" placeholder="Entrez un sujet" required>
                     </div>
-
-                    <br>
-
-                    <div>
-                        <label>Catégorie</label>
-                        <select class="srpDropdown" data-ng-model="cat">
-                            <option data-ng-repeat="cat in srpCategories">{{ cat.content }}</option>
-                        </select>
-                    </div>
-
-                    <br>
-
-                    <div>
-                        <label>Sous-Catégorie</label>
-                        <select class="srpDropdown" data-ng-model="subCat">
-                            <option data-ng-repeat="subCat in srpSubCategories">{{ subCat.content }}</option>
-                        </select>
-                    </div>
-
-                    <!--
-<label>Priorité</label>
-<div class="btn-group" dropdown>
-<button type="button"
-class="btn btn-default dropdown-toggle"
-dropdown-toggle>
-Choisir<span class="caret"></span>
-</button>
-<ul class="dropdown-menu" role="menu">
-<li data-ng-repeat="choice in srpPrios">
-<a data-ng-click="userChoice = $index">{{ choice }}</a>
-</li>
-</ul>
-</div>
-<label>Vente</label>
-<div class="btn-group" dropdown>
-<button type="button"
-class="btn btn-default dropdown-toggle"
-dropdown-toggle>
-Choisir<span class="caret"></span>
-</button>
-<ul class="dropdown-menu" role="menu">
-<li data-ng-repeat="choice in srpVentes">
-<a data-ng-click="userChoice = $index">{{ choice }}</a>
-</li>
-</ul>
-</div>
-<br><br>
-
-<label>Catégorie</label>
-<div class="btn-group" dropdown>
-<button type="button"
-class="btn btn-default dropdown-toggle"
-dropdown-toggle>
-Choisir<span class="caret"></span>
-</button>
-<ul class="dropdown-menu" role="menu">
-<li data-ng-repeat="choice in srpCategories">
-<a data-ng-click="userChoice = $index">{{ choice }}</a>
-</li>
-</ul>
-</div>
-<br><br>
-<label>Sous-Catégorie</label>
-<div class="btn-group" dropdown>
-<button type="button"
-class="btn btn-default dropdown-toggle"
-dropdown-toggle>
-Choisir<span class="caret"></span>
-</button>
-<ul class="dropdown-menu" role="menu">
-<li data-ng-repeat="choice in srpSubCategories">
-<a data-ng-click="userChoice = $index">{{ choice }}</a>
-</li>
-</ul>
-</div>
--->
-                </div>
-                <hr>
-                <div>
-
-                </div>
-
-                <div>
-                </div>
-
-                <div class="srpDisplayInline">
-                    <label>No. de Commande</label>
-                    <input class="srpNewTcktInput input-sm">
-                    <label>No. de Vente</label>
-                    <input class="srpNewTcktInput input-sm">
-                    <label>Ref. SRP</label>
-                    <input class="srpNewTcktInput input-sm">
-                </div>
-                <br><br>
-                <div>
-                    <label>Sujet</label>
-                    <input class="srpNewTcktInput input-sm">
-                </div>
-                <hr>
-                <form >
+                    <hr>
                     <div>
                         <label>Message</label>
-                        <textarea id="srpTextArea"></textarea>
+                        <textarea id="srpTextArea" type="text"
+                                  data-ng-model="newMsg" required>
+                        </textarea>
                     </div>
                     <br>
                     <div>
                         <label>
-                            <span class="glyphicon glyphicon-paperclip"></span> Fichier à joindre</label>
-                        <button class="glyphicon glyphicon-plus btn btn-success btn-sm"></button>
+                            <span class="glyphicon glyphicon-paperclip"></span>
+                            Fichier à joindre
+                        </label>
+                        <button class="glyphicon glyphicon-plus btn btn-success btn-sm">
+                        </button>
                     </div>
                     <br>
                     <div>
-                        <button type="submit" class="btn btn-primary btn-block srpPositionBtnSend">
+                        <button type="submit" class="btn btn-primary btn-block srpPositionBtnSend" data-ng-click="submit(helpForm)" data-ng-disabled="helpForm.$invalid">
                             <span class="glyphicon glyphicon-send"></span>
-                            <label class="srpSizeTextBtnSend">
-                                Envoyer le ticket</label>
+                            Envoyer le ticket
                         </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </tab>
         <!--    End of New tickets tab-->
 
@@ -354,7 +333,9 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>Priorité</label>
                     <select class="srpDropdown" data-ng-model="prio">
-                        <option data-ng-repeat="prio in srpPrios">{{ prio.content }}</option>
+                        <option data-ng-repeat="prio in srpPrios">
+                            {{ prio.content }}
+                        </option>
                     </select>
                 </div>
 
@@ -363,7 +344,9 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>Vente</label>
                     <select class="srpDropdown" data-ng-model="vente">
-                        <option data-ng-repeat="vente in srpVentes">{{ vente.content }}</option>
+                        <option data-ng-repeat="vente in srpVentes">
+                            {{ vente.content }}
+                        </option>
                     </select>
                 </div>
 
@@ -372,7 +355,9 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>Statut</label>
                     <select class="srpDropdown" data-ng-model="statut">
-                        <option data-ng-repeat="statut in srpStatuts">{{ statut.content }}</option>
+                        <option data-ng-repeat="statut in srpStatuts">
+                            {{ statut.content }}
+                        </option>
                     </select>
                 </div>
 
@@ -381,7 +366,9 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>Catégorie</label>
                     <select class="srpDropdown" data-ng-model="cat">
-                        <option data-ng-repeat="cat in srpCategories">{{ cat.content }}</option>
+                        <option data-ng-repeat="cat in srpCategories">
+                            {{ cat.content }}
+                        </option>
                     </select>
                 </div>
 
@@ -390,7 +377,9 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>Sous-Catégorie</label>
                     <select class="srpDropdown" data-ng-model="subCat">
-                        <option data-ng-repeat="subCat in srpSubCategories">{{ subCat.content }}</option>
+                        <option data-ng-repeat="subCat in srpSubCategories">
+                            {{ subCat.content }}
+                        </option>
                     </select>
                 </div>
 
@@ -399,13 +388,113 @@ Choisir<span class="caret"></span>
                 <div>
                     <label>+ 1500</label>
                     <select class="srpDropdown">
-                        <option data-ng-repeat="choice in thousandFive">{{ choice }}</option>
+                        <option data-ng-repeat="choice in thousandFive">
+                            {{ choice }}
+                        </option>
                     </select>
                 </div>
             </div>
             <br>
+            <div>
+                <label for="inputDefault">Date de début</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Date de fin</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <label for="inputDefault">Dernière action par</label>
+                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary btn-block"> 
+                    <span class="glyphicon glyphicon-search"></span>
+                    Recherche
+                </button>
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-default btn-lg"> 
+                    <span class="glyphicon glyphicon-export"></span> Exporter vers Excel</button>
+            </div>
+        </tab>
+        <!--    End of Research tab-->
 
-            <!--
+        <!--        Create the Stat tab-->
+        <tab heading="Statistiques">
+            <p>Tab to see Wallboard CPM</p>
+        </tab>
+        <!--    End of Stat. tab-->
+    </tabset>
+
+</div>
+
+<!--
+Dropdown page Nouveau Ticket
+<label>Priorité</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpPrios">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<label>Vente</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpVentes">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<br><br>
+
+<label>Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+<br><br>
+<label>Sous-Catégorie</label>
+<div class="btn-group" dropdown>
+<button type="button"
+class="btn btn-default dropdown-toggle"
+dropdown-toggle>
+Choisir<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li data-ng-repeat="choice in srpSubCategories">
+<a data-ng-click="userChoice = $index">{{ choice }}</a>
+</li>
+</ul>
+</div>
+-->
+
+
+<!--
+Dropdown page Recherche
 <label>Vente</label>
 <div class="btn-group" dropdown>
 <button type="button"
@@ -507,42 +596,3 @@ Non<span class="caret"></span>
 </div>
 </div>
 -->
-
-            <div>
-                <label for="inputDefault">Date de début</label>
-                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
-            </div>
-            <br>
-            <div>
-                <label for="inputDefault">Date de fin</label>
-                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
-            </div>
-            <br>
-            <div>
-                <label for="inputDefault">Dernière action par</label>
-                <input class="srpAlignCenter input-sm" id="inputDefault" type="text">
-            </div>
-            <br>
-            <div>
-                <button class="btn btn-primary btn-block"> 
-                    <span class="glyphicon glyphicon-search"></span>
-                    <label class="srpSizeTextBtnSend">
-                        Recherche</label>
-                </button>
-            </div>
-            <br>
-            <div>
-                <button class="btn btn-default btn-lg"> 
-                    <span class="glyphicon glyphicon-export"></span> Exporter vers Excel</button>
-            </div>
-        </tab>
-        <!--    End of Research tab-->
-
-        <!--        Create the Stat tab-->
-        <tab heading="Statistiques">
-            <p>Tab to see Wallboard CPM</p>
-        </tab>
-        <!--    End of Stat. tab-->
-    </tabset>
-
-</div>

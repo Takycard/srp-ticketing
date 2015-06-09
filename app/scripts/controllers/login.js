@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('srpTicketingApp')
-.controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+    .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
     $scope.passwordLogin = function(email, pass) {
         $scope.err = null;
         Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(

@@ -5,6 +5,7 @@ a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
     cursor: pointer;
     box-sizing: content-box;
 }
+
 .srpPink {
     color: #dd0cb4;
 }
@@ -29,6 +30,12 @@ a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
     text-align: center;
     font-family: monospace;
     font-size: 20px;
+}
+
+.srpTableHead {
+    text-align: center;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 #srpTextArea {
