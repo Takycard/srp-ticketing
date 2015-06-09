@@ -7,6 +7,8 @@
  * # AdministrationCtrl
  * Controller of the srpTicketingApp
  */
+'use strict';
+
 angular.module('srpTicketingApp')
     .controller('AdministrationCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
 
@@ -43,7 +45,6 @@ angular.module('srpTicketingApp')
             return def.promise;
         }
     };
-
     function firstPartOfEmail(email) {
         return ucfirst(email.substr(0, email.indexOf('@'))||'');
     }

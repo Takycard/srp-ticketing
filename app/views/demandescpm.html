@@ -32,10 +32,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <p>Ceci est un test</p>
-                    <tr data-ng-repeat="tckt in srpNewTckt">
-                        <td>  </td>
-                        <td > Nom </td>
+                    <tr data-ng-repeat="tckt in srpNewTckt track by $index">
+                        <td > {{$index}} </td>
+                        <td > {{$user.name}} </td>
                         <td > {{tckt.subj}} </td>
                         <td > {{tckt.prio}} </td>
                         <td > {{tckt.vente}} </td>
@@ -45,7 +44,7 @@
                         <td > {{tckt.noSale}} </td>
                         <td > {{tckt.refSrp}} </td>
                         <td > Date de Création </td>
-                        <td > Statut </td>
+                        <td > {{statut}} </td>
                         <td > Non </td>
                         <td > Date de Dernière Réponse </td>
                         <td > Par </td>
@@ -53,7 +52,7 @@
                 </tbody>
             </table>
         </tab>
-        <!--    End of To threat tickets tab-->
+        <!--    End of the To threat tickets tab-->
 
         <!--    Create the Unread tickets tab-->
         <tab heading="Tickets non lus">

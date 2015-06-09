@@ -67,7 +67,7 @@ angular.module('srpTicketingApp')
             console.log(cats);
             console.log(subCats);
             console.log(prio);
-            console.log(srpCreateTckt[2]);
+            console.log(srpCreateTckt);
             console.log('end');
             $scope.srpNewTckt.$add({
                 prio: prio.content,
@@ -81,35 +81,4 @@ angular.module('srpTicketingApp')
                 msg: newMsg
             });
         };
-    }])
-
-    .factory("srpPrio", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/priority");
-
-        return $firebaseArray(ref);
-    }])
-    .factory("srpVente", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/sale");
-
-        return $firebaseArray(ref);
-    }])
-    .factory("srpStatut", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/statut");
-
-        return $firebaseArray(ref);
-    }])
-    .factory("srpCat", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/category");
-
-        return $firebaseArray(ref);
-    }])
-    .factory("srpSubCat", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/ss-category");
-
-        return $firebaseArray(ref);
-    }])
-    .factory("srpCreateTckt", ["$firebaseArray", function($firebaseArray) {
-        var ref = new Firebase("https://srp-ticketing.firebaseio.com/tickets");
-
-        return $firebaseArray(ref);
     }]);
