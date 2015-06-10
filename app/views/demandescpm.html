@@ -43,8 +43,8 @@
                         <td > {{tckt.noComm}} </td>
                         <td > {{tckt.noSale}} </td>
                         <td > {{tckt.refSrp}} </td>
-                        <td > Date de Création </td>
-                        <td > {{statut}} </td>
+                        <td > {{createdate}} </td>
+                        <td > A traiter </td>
                         <td > Non </td>
                         <td > Date de Dernière Réponse </td>
                         <td > Par </td>
@@ -152,7 +152,7 @@
 
                         <br>
 
-                        <div>
+                        <div >
                             <label>Sous-Catégorie</label>
                             <select class="srpDropdown" data-ng-model="subCats"
                                     data-ng-options="subCats.content for subCats in srpSubCategories"required>

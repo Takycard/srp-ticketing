@@ -2,11 +2,15 @@ a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 table, td, th {
     text-align: center;
-
     border: 1px solid #dd0cb4;
 }
-.srpDropdown {
 
+.srpFooterCenter {
+    text-align: center;
+    color: #dd0cb4;
+}
+
+.srpDropdown {
     cursor: pointer;
     box-sizing: content-box;
 }

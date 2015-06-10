@@ -9,7 +9,6 @@
  */
 angular.module('srpTicketingApp')
     .controller('DemandescpmCtrl', ['$scope', 'srpStatut', 'srpCat','srpSubCat', 'srpPrio', 'srpVente', 'srpCreateTckt', function ($scope, srpStatut, srpCat,                                                 srpSubCat, srpPrio, srpVente, srpCreateTckt){
-        $scope.userChoice = false;
         $scope.thousandFive = [
             'Non',
             'Oui'
@@ -58,16 +57,14 @@ angular.module('srpTicketingApp')
             });
         };
 
+        // Create new tickets inside of Firebase
         $scope.addNewTicket = function(prio, vente, cats, subCats,
                                         newNumComm, newNumSale,
                                         newRefSrp, newSubject,
                                         newMsg) {
             console.log('start');
-            console.log(vente);
-            console.log(cats);
-            console.log(subCats);
-            console.log(prio);
-            console.log(srpCreateTckt);
+            console.log(srpCat);
+            console.log(srpSubCat);
             console.log('end');
             $scope.srpNewTckt.$add({
                 prio: prio.content,
