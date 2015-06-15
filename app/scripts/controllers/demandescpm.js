@@ -22,6 +22,9 @@ angular.module('srpTicketingApp')
         $scope.srpStatuts = srpStatut;
         // create a synchronized array for categories
         $scope.srpCategories = srpCat;
+        $scope.srpCategories.$loaded(function() {
+            console.log($scope.srpCategories);
+        });
         // create a synchronized array for subcategories
         $scope.srpSubCategories = srpSubCat;
         // create a synchronized object for new tickets
@@ -42,12 +45,23 @@ angular.module('srpTicketingApp')
         $scope.addStatut = function(statut) {
             $scope.srpStatuts.$add({
                 content: statut
+                //                ,
+                //                ss-cat: [
+                //                    'Blabla',
+                //                ]
             });
+            //            $scope.srpStatuts.forEach(function(d) {
+            //                d.content;
+            //                d.ss-cat[0];
+            //            });
         };
 
-        $scope.addCat = function(cat) {
+        $scope.addCat = function(cat, subCats) {
             $scope.srpCategories.$add({
-                content: cat
+                content: cat,
+                ssCat:{
+                    "srpName": subCats
+                }
             });
         };
 

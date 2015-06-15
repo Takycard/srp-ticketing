@@ -11,46 +11,112 @@
                 </button>
             </div>
             <br>
-            <table class="table table-striped">
-                <thead class="srpTableHead">
-                    <tr class="srpPink">
-                        <th > # </th>
-                        <th > Nom </th>
-                        <th > Sujet </th>
-                        <th > Priorité </th>
-                        <th > Avant/Après Vente </th>
-                        <th > Catégorie </th>
-                        <th > Sous-Catégorie </th>
-                        <th > No. de Commande </th>
-                        <th > No. de Vente </th>
-                        <th > Ref. SRP </th>
-                        <th > Date de Création </th>
-                        <th > Statut </th>
-                        <th > +1500€ </th>
-                        <th > Date de Dernière Réponse </th>
-                        <th > Par </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-ng-repeat="tckt in srpNewTckt track by $index">
-                        <td > {{$index}} </td>
-                        <td > {{$user.name}} </td>
-                        <td > {{tckt.subj}} </td>
-                        <td > {{tckt.prio}} </td>
-                        <td > {{tckt.vente}} </td>
-                        <td > {{tckt.cats}} </td>
-                        <td > {{tckt.subCat}} </td>
-                        <td > {{tckt.noComm}} </td>
-                        <td > {{tckt.noSale}} </td>
-                        <td > {{tckt.refSrp}} </td>
-                        <td > {{createdate}} </td>
-                        <td > A traiter </td>
-                        <td > Non </td>
-                        <td > Date de Dernière Réponse </td>
-                        <td > Par </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div data-ng-controller="ModalCtrl">
+                <div>
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <label>
+                                Ticket numéro : {{$index}}
+                            </label>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                Sujet : {{myData}}
+                                <br>
+                                Catégorie : {{tckt.cats}}
+                                <br>
+                                Sous Catégorie : {{tckt.subCat}}
+                                <br>
+                                Priorité : {{tckt.prio}}
+                                <br>
+                                Num Comm : {{tckt.noComm}}
+                                <br>
+                                Num Vente : {{tckt.noSale}}
+                                <br>
+                                Ref SRP : {{tckt.refSrp}}
+                            </div>
+                            <hr>
+                            <div>
+                                Récupération de msg : {{tckt.msg}}
+                                <br>
+                                <textarea type="text">
+                                    Répondre au message
+                                </textarea>
+                            </div>
+                            <div>
+                                <span class="glyphicon glyphicon-paperclip"></span>
+                                Fichier à joindre à votre réponse
+                                <button class="glyphicon glyphicon-plus btn btn-success btn-sm">
+                                </button>
+                            </div>
+                            <div>
+                                Statut
+                                <select class="srpDropdown" data-ng-model="statut"
+                                        data-ng-options="statut.content for statut in srpstatut" required>
+                                </select>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-send"></span> Envoyer la réponse</button>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <!--
+<p> {{$index}} <p>
+<p> {{$user.name}} <p>
+<p> {{tckt.subj}} <p>
+<p> {{tckt.prio}} <p>
+<p> {{tckt.vente}} <p>
+-->
+                            <button class="btn btn-primary" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        </div>
+
+                    </script>
+                    <table class="table table-striped">
+                        <thead class="srpTableHead">
+                            <tr class="srpPink">
+                                <th> # </th>
+                                <th > Nom </th>
+                                <th > Sujet </th>
+                                <th > Priorité </th>
+                                <th > Avant/Après Vente </th>
+                                <th > Catégorie </th>
+                                <th > Sous-Catégorie </th>
+                                <th > No. de Commande </th>
+                                <th > No. de Vente </th>
+                                <th > Ref. SRP </th>
+                                <th > Date de Création </th>
+                                <th > Statut </th>
+                                <th > +1500€ </th>
+                                <th > Date de Dernière Réponse </th>
+                                <th > Par </th>
+                            </tr>
+                        </thead>
+                        <tbody ng-click="open()">
+                            <tr data-ng-repeat="tckt in srpNewTckt track by $index">
+                                <td > {{$index}} </td>
+                                <td > {{$user.name}} </td>
+                                <td > {{tckt.subj}} </td>
+                                <td > {{tckt.prio}} </td>
+                                <td > {{tckt.vente}} </td>
+                                <td > {{tckt.cats}} </td>
+                                <td > {{tckt.subCat}} </td>
+                                <td > {{tckt.noComm}} </td>
+                                <td > {{tckt.noSale}} </td>
+                                <td > {{tckt.refSrp}} </td>
+                                <td > {{createdate}} </td>
+                                <td > A traiter </td>
+                                <td > Non </td>
+                                <td > Date de Dernière Réponse </td>
+                                <td > Par </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </tab>
         <!--    End of the To threat tickets tab-->
 
@@ -152,7 +218,7 @@
 
                         <br>
 
-                        <div >
+                        <div>
                             <label>Sous-Catégorie</label>
                             <select class="srpDropdown" data-ng-model="subCats"
                                     data-ng-options="subCats.content for subCats in srpSubCategories"required>
@@ -263,7 +329,7 @@
             <hr>
 
             <div>
-                <form data-ng-submit="addCat(cat)">
+                <form data-ng-submit="addCat(cat, subCats)">
                     <label>Catégorie</label>
                     <input class="srpAlignCenter input-sm" type="text" ng-model="cat"
                            placeholder="Entrez une nouvelle catégorie puis appuyez sur la touche entrée">
@@ -281,18 +347,18 @@
             <hr>
 
             <div>
-                <form data-ng-submit="addSubCat(subCat)">
+                <form data-ng-submit="addCat(cat, subCats)">
                     <label>Sous-Catégorie</label>
-                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="subCat"
+                    <input class="srpAlignCenter input-sm" type="text" data-ng-model="subCats"
                            placeholder="Entrez une nouvelle sous-catégorie puis appuyez sur la touche entrée">
                 </form>
             </div>
             <div>
                 <ul>
                     <br>
-                    <li class="list-group-item list-group-item-info" data-ng-repeat="subCat in srpSubCategories">
-                        {{subCat.content}}
-                        <a href="" data-ng-click="srpSubCategories.$remove(subCat)">x</a>
+                    <li class="list-group-item list-group-item-info" data-ng-repeat="ssCat.subCats in srpCategories">
+                        {{subCats.srpName}}
+                        <a href="" data-ng-click="srpCategories.$remove(subCats)">x</a>
                     </li>
                 </ul>
             </div>
