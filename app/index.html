@@ -9,6 +9,7 @@
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/angular-gridster/dist/angular-gridster.min.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -33,7 +34,6 @@
                             <li><a ng-href="#/chat">
                                 <span class="glyphicon glyphicon-comment"></span>
                                 Chat</a></li>
-
                             <li>
                                 <a ng-show-auth="" href="#/demandes-cpm"> 
                                     <span class="glyphicon glyphicon-send"></span>
@@ -98,6 +98,8 @@
             <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
             <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
             <script src="bower_components/angular-ui-bootstrap-tabs-include/lib/angular-ui-bootstrap-tabs-include.js"></script>
+            <script src="bower_components/javascript-detect-element-resize/detect-element-resize.js"></script>
+            <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
             <!-- endbower -->
             <!-- endbuild -->
 
@@ -112,6 +114,7 @@
             <script src="scripts/controllers/login.js"></script>
             <script src="scripts/controllers/demandescpm.js"></script>
             <script src="scripts/controllers/tickets-escalade.js"></script>
+            <script src="scripts/controllers/srpFileDialogCtrl.js"></script>
             <script src="scripts/controllers/account.js"></script>
             <script src="scripts/controllers/administration.js"></script>
             <script src="scripts/controllers/srpNotifCtrl.js"></script>
@@ -125,6 +128,7 @@
             <script src="scripts/factory/srpFactoryVente.js"></script>
             <!--            <script src="scripts/factory/srpFactoryNameCreatorTckt.js"></script>-->
             <script src="scripts/directives/ngShowAuth.js"></script>
+            <script src="scripts/directives/srpFileDialogDirective.js"></script>
             <script src="scripts/directives/ngHideAuth.js"></script>
             <script src="scripts/routes.js"></script>
             <!-- endbuild -->

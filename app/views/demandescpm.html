@@ -46,8 +46,7 @@
                             <div>
                                 <span class="glyphicon glyphicon-paperclip"></span>
                                 Fichier à joindre à votre réponse
-                                <button class="glyphicon glyphicon-plus btn btn-success btn-sm">
-                                </button>
+                                <input type="file" file-dialog />
                             </div>
                             <div>
                                 Statut
@@ -58,7 +57,8 @@
 
                             <div>
                                 <button class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-send"></span> Envoyer la réponse</button>
+                                    <span class="glyphicon glyphicon-send"></span>
+                                    Envoyer la réponse</button>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@
                     <table class="table table-striped">
                         <thead class="srpTableHead">
                             <tr class="srpPink">
-                                <th> # </th>
+                                <th > # </th>
                                 <th > Nom </th>
                                 <th > Sujet </th>
                                 <th > Priorité </th>
@@ -95,8 +95,8 @@
                                 <th > Par </th>
                             </tr>
                         </thead>
-                        <tbody ng-click="open()">
-                            <tr data-ng-repeat="tckt in srpNewTckt track by $index">
+                        <tbody>
+                            <tr data-ng-repeat="tckt in srpNewTckt track by $index" ng-click="open()">
                                 <td > {{$index}} </td>
                                 <td > {{$user.name}} </td>
                                 <td > {{tckt.subj}} </td>
@@ -256,8 +256,7 @@
                             <span class="glyphicon glyphicon-paperclip"></span>
                             Fichier à joindre
                         </label>
-                        <button class="glyphicon glyphicon-plus btn btn-success btn-sm">
-                        </button>
+                        <input type="file" file-dialog />
                     </div>
                     <br>
                     <div>
@@ -357,7 +356,7 @@
                 <ul>
                     <br>
                     <li class="list-group-item list-group-item-info" data-ng-repeat="ssCat.subCats in srpCategories">
-                        {{subCats.srpName}}
+                        {{cat.ssCat.srpName}}
                         <a href="" data-ng-click="srpCategories.$remove(subCats)">x</a>
                     </li>
                 </ul>
@@ -484,18 +483,23 @@
             <br>
             <div>
                 <button class="btn btn-default btn-lg"> 
-                    <span class="glyphicon glyphicon-export"></span> Exporter vers Excel</button>
+                    <span class="glyphicon glyphicon-export"></span>
+                    Exporter vers Excel</button>
             </div>
         </tab>
         <!--    End of Research tab-->
 
         <!--        Create the Stat tab-->
         <tab heading="Statistiques">
-            <p>Tab to see Wallboard CPM</p>
+            <div gridster>
+                <ul>
+                    <li class="srpGridster" gridster-item="item"
+                        ng-repeat="item in standardItems"> {{item.name}} </li>
+                </ul>
+            </div>
         </tab>
         <!--    End of Stat. tab-->
     </tabset>
-
 </div>
 
 <!--

@@ -45,10 +45,6 @@ angular.module('srpTicketingApp')
         $scope.addStatut = function(statut) {
             $scope.srpStatuts.$add({
                 content: statut
-                //                ,
-                //                ss-cat: [
-                //                    'Blabla',
-                //                ]
             });
             //            $scope.srpStatuts.forEach(function(d) {
             //                d.content;
@@ -56,11 +52,32 @@ angular.module('srpTicketingApp')
             //            });
         };
 
+
+        // IMPORTANT: Items should be placed in the grid in the order in which they should appear.
+        // In most cases the sorting should be by row ASC, col ASC
+
+        // these map directly to gridsterItem directive options
+        $scope.standardItems = [
+            { sizeX: 2, sizeY: 2, row: 4, col: 0, name: 'Tickets créés' },
+            { sizeX: 2, sizeY: 2, row: 1, col: 1, name: 'Tickets "A traiter"' },
+            { sizeX: 2, sizeY: 2, row: 1, col: 2, name: 'Tickets "En cours"' },
+            { sizeX: 2, sizeY: 2, row: 1, col: 3, name: 'Tickets traités' },
+            { sizeX: 2, sizeY: 2, row: 2, col: 0, name: 'Tickets résolus' },
+            { sizeX: 2, sizeY: 2, row: 2, col: 1, name: 'Tickets escaladés' },
+            { sizeX: 2, sizeY: 2, row: 2, col: 2, name: 'Tickets résolus DC+' },
+            { sizeX: 2, sizeY: 2, row: 2, col: 3, name: 'Tickets résolus DC-' },
+            { sizeX: 2, sizeY: 2, row: 3, col: 0, name: 'Catégories' },
+            { sizeX: 2, sizeY: 2, row: 3, col: 1, name: 'Doublons' },
+            { sizeX: 2, sizeY: 2, row: 3, col: 2, name: 'Hors procédure CPM' },
+            { sizeX: 2, sizeY: 2, row: 3, col: 3, name: 'Top 10 Ventes' },
+            { sizeX: 2, sizeY: 2, row: 1, col: 0, name: 'Avant/Après Vente' }
+        ];
+
         $scope.addCat = function(cat, subCats) {
             $scope.srpCategories.$add({
                 content: cat,
                 ssCat:{
-                    "srpName": subCats
+                    srpName: subCats
                 }
             });
         };
@@ -76,10 +93,6 @@ angular.module('srpTicketingApp')
                                         newNumComm, newNumSale,
                                         newRefSrp, newSubject,
                                         newMsg) {
-            console.log('start');
-            console.log(srpCat);
-            console.log(srpSubCat);
-            console.log('end');
             $scope.srpNewTckt.$add({
                 prio: prio.content,
                 vente: vente.content,

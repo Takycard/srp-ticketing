@@ -1,8 +1,12 @@
-a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+td, a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 table, td, th {
     text-align: center;
     border: 1px solid #dd0cb4;
+}
+
+th {
+    background-color: rgba(181, 166, 166, 0.8);
 }
 
 .srpFooterCenter {
@@ -19,6 +23,10 @@ table, td, th {
     color: #dd0cb4;
 }
 
+.srpGridster {
+    background-color: #dd0cb4;
+    box-sizing: border-box;
+}
 .srpNewTcktInput {
     display: inline-block;
     width: 20%;
