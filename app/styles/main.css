@@ -14,6 +14,10 @@ th {
     color: #dd0cb4;
 }
 
+.srpAdminRight {
+    align-content: right;
+}
+
 .srpDropdown {
     cursor: pointer;
     box-sizing: content-box;

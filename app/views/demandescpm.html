@@ -11,70 +11,8 @@
                 </button>
             </div>
             <br>
-            <div data-ng-controller="ModalCtrl">
+            <div>
                 <div>
-                    <script type="text/ng-template" id="myModalContent.html">
-                        <div class="modal-header">
-                            <label>
-                                Ticket numéro : {{$index}}
-                            </label>
-                        </div>
-                        <div class="modal-body">
-                            <div>
-                                Sujet : {{myData}}
-                                <br>
-                                Catégorie : {{tckt.cats}}
-                                <br>
-                                Sous Catégorie : {{tckt.subCat}}
-                                <br>
-                                Priorité : {{tckt.prio}}
-                                <br>
-                                Num Comm : {{tckt.noComm}}
-                                <br>
-                                Num Vente : {{tckt.noSale}}
-                                <br>
-                                Ref SRP : {{tckt.refSrp}}
-                            </div>
-                            <hr>
-                            <div>
-                                Récupération de msg : {{tckt.msg}}
-                                <br>
-                                <textarea type="text">
-                                    Répondre au message
-                                </textarea>
-                            </div>
-                            <div>
-                                <span class="glyphicon glyphicon-paperclip"></span>
-                                Fichier à joindre à votre réponse
-                                <input type="file" file-dialog />
-                            </div>
-                            <div>
-                                Statut
-                                <select class="srpDropdown" data-ng-model="statut"
-                                        data-ng-options="statut.content for statut in srpstatut" required>
-                                </select>
-                            </div>
-
-                            <div>
-                                <button class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-send"></span>
-                                    Envoyer la réponse</button>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <!--
-<p> {{$index}} <p>
-<p> {{$user.name}} <p>
-<p> {{tckt.subj}} <p>
-<p> {{tckt.prio}} <p>
-<p> {{tckt.vente}} <p>
--->
-                            <button class="btn btn-primary" ng-click="ok()">OK</button>
-                            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-                        </div>
-
-                    </script>
                     <table class="table table-striped">
                         <thead class="srpTableHead">
                             <tr class="srpPink">
@@ -96,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="tckt in srpNewTckt track by $index" ng-click="open()">
+                            <tr data-ng-repeat="tckt in srpNewTckt" ng-click="clickToOpen($index)">
                                 <td > {{$index}} </td>
                                 <td > {{$user.name}} </td>
                                 <td > {{tckt.subj}} </td>
@@ -188,7 +126,7 @@
             <br>
             <form name="helpForm" data-ng-submit="addNewTicket(prio, vente, cats,
                                                   subCats, newNumComm, newNumSale,
-                                                  newRefSrp, newSubject, newMsg)">
+                                                  newRefSrp, newSubject, newMsg, newResponse)">
                 <div>
                     <div>
                         <div>

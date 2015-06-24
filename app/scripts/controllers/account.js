@@ -56,5 +56,4 @@ angular.module('srpTicketingApp')
             $scope.messages.splice($scope.messages.indexOf(obj), 1);
         }, 10000);
     }
-
 });

@@ -8,7 +8,7 @@
  * Controller of the srpTicketingApp
  */
 angular.module('srpTicketingApp')
-    .controller('DemandescpmCtrl', ['$scope', 'srpStatut', 'srpCat','srpSubCat', 'srpPrio', 'srpVente', 'srpCreateTckt', function ($scope, srpStatut, srpCat,                                                 srpSubCat, srpPrio, srpVente, srpCreateTckt){
+    .controller('DemandescpmCtrl', ['$scope', 'srpStatut', 'srpCat', 'srpSubCat', 'srpPrio', 'srpVente', 'srpCreateTckt', 'ngDialog', 'srpAddResponse', function ($scope, srpStatut, srpCat, srpSubCat, srpPrio, srpVente, srpCreateTckt, srpAddResponse, ngDialog) {
         $scope.thousandFive = [
             'Non',
             'Oui'
@@ -25,10 +25,13 @@ angular.module('srpTicketingApp')
         $scope.srpCategories.$loaded(function() {
             console.log($scope.srpCategories);
         });
+
         // create a synchronized array for subcategories
         $scope.srpSubCategories = srpSubCat;
         // create a synchronized object for new tickets
         $scope.srpNewTckt = srpCreateTckt;
+
+        $scope.srpNewResponse = srpAddResponse;
 
         $scope.addPrio = function(prio) {
             $scope.srpPrios.$add({
@@ -52,27 +55,6 @@ angular.module('srpTicketingApp')
             //            });
         };
 
-
-        // IMPORTANT: Items should be placed in the grid in the order in which they should appear.
-        // In most cases the sorting should be by row ASC, col ASC
-
-        // these map directly to gridsterItem directive options
-        $scope.standardItems = [
-            { sizeX: 2, sizeY: 2, row: 4, col: 0, name: 'Tickets créés' },
-            { sizeX: 2, sizeY: 2, row: 1, col: 1, name: 'Tickets "A traiter"' },
-            { sizeX: 2, sizeY: 2, row: 1, col: 2, name: 'Tickets "En cours"' },
-            { sizeX: 2, sizeY: 2, row: 1, col: 3, name: 'Tickets traités' },
-            { sizeX: 2, sizeY: 2, row: 2, col: 0, name: 'Tickets résolus' },
-            { sizeX: 2, sizeY: 2, row: 2, col: 1, name: 'Tickets escaladés' },
-            { sizeX: 2, sizeY: 2, row: 2, col: 2, name: 'Tickets résolus DC+' },
-            { sizeX: 2, sizeY: 2, row: 2, col: 3, name: 'Tickets résolus DC-' },
-            { sizeX: 2, sizeY: 2, row: 3, col: 0, name: 'Catégories' },
-            { sizeX: 2, sizeY: 2, row: 3, col: 1, name: 'Doublons' },
-            { sizeX: 2, sizeY: 2, row: 3, col: 2, name: 'Hors procédure CPM' },
-            { sizeX: 2, sizeY: 2, row: 3, col: 3, name: 'Top 10 Ventes' },
-            { sizeX: 2, sizeY: 2, row: 1, col: 0, name: 'Avant/Après Vente' }
-        ];
-
         $scope.addCat = function(cat, subCats) {
             $scope.srpCategories.$add({
                 content: cat,
@@ -88,11 +70,17 @@ angular.module('srpTicketingApp')
             });
         };
 
+        $scope.addResponse = function(srpRep) {
+            $scope.srpSubCategories.$add({
+                content: srpRep
+            });
+        };
+
         // Create new tickets inside of Firebase
         $scope.addNewTicket = function(prio, vente, cats, subCats,
                                         newNumComm, newNumSale,
                                         newRefSrp, newSubject,
-                                        newMsg) {
+                                        newMsg, newResponse) {
             $scope.srpNewTckt.$add({
                 prio: prio.content,
                 vente: vente.content,
@@ -102,7 +90,53 @@ angular.module('srpTicketingApp')
                 noSale: newNumSale,
                 refSrp: newRefSrp,
                 subj: newSubject,
-                msg: newMsg
+                msg: newMsg,
+                rep: newResponse
             });
         };
+
+        $scope.clickToOpen = function(index) {
+            console.log(index);
+            ngDialog.open({
+                template: 'views/template-modal.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    index: function() {
+                        return index;
+                    },
+                    ticket: function() {
+                        return srpCreateTckt[index];
+                    },
+                    statutList: function() {
+                        return srpStatut;
+                    },
+                    newResponse: function() {
+                        return srpAddResponse;
+                    }
+                }
+            });
+        };
+        // IMPORTANT: Items should be placed in the grid in the order in which they should appear.
+        // In most cases the sorting should be by row ASC, col ASC
+
+        // these map directly to gridsterItem directive options
+        $scope.standardItems = [
+            { sizeX: 1, sizeY: 1, row: 0, col: 0, name: 'Tickets créés' },
+            { sizeX: 1, sizeY: 1, row: 0, col: 1, name: 'Tickets "A traiter"' },
+            { sizeX: 1, sizeY: 1, row: 0, col: 2, name: 'Tickets "En cours"' },
+            { sizeX: 1, sizeY: 1, row: 1, col: 0, name: 'Tickets traités' },
+            { sizeX: 1, sizeY: 1, row: 1, col: 1, name: 'Tickets résolus' },
+            { sizeX: 1, sizeY: 1, row: 1, col: 2, name: 'Tickets escaladés' },
+            { sizeX: 1, sizeY: 1, row: 2, col: 0, name: 'Tickets résolus DC+' },
+            { sizeX: 1, sizeY: 1, row: 2, col: 1, name: 'Tickets résolus DC-' },
+            { sizeX: 1, sizeY: 1, row: 2, col: 2, name: 'Catégories' },
+            { sizeX: 1, sizeY: 1, row: 3, col: 0, name: 'Doublons' },
+            { sizeX: 1, sizeY: 1, row: 3, col: 1, name: 'Hors procédure CPM' },
+            { sizeX: 1, sizeY: 1, row: 3, col: 2, name: 'Top 10 Ventes' },
+            { sizeX: 1, sizeY: 1, row: 4, col: 0, name: 'Avant/Après Vente' }
+        ];
+
+        $scope.$watch('standardItems', function() {
+            console.log($scope.standardItems);
+        }, true);
     }]);

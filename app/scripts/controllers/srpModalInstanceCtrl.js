@@ -4,19 +4,19 @@
 // It is not the same as the $modal service used above.
 
 angular.module('srpTicketingApp')
-    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, myData) {
+    .controller('ModalInstanceCtrl', function ($scope, ticket, index, statutList, newResponse, ngDialog) {
+    // Initialize scope
+    $scope.ticket = ticket;
+    $scope.index = index;
+    $scope.newResponse = newResponse;
+    $scope.statutList = statutList;
 
-    $scope.myData = myData;
-
-    $modalInstance.setMyData = function(theData) {
-        $scope.myData = theData;
+    console.log(ticket);
+    $scope.cancel = function () {
+        ngDialog.closeAll();
     };
 
     $scope.ok = function () {
-        $modalInstance.close($scope.myData);
-    };
-
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        ngDialog.confirm();
     };
 });

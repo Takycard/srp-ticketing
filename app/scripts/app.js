@@ -21,5 +21,6 @@ angular.module('srpTicketingApp', [
     'firebase.auth',
     'ui.bootstrap',
     'ui.bootstrap.tabs.include',
-    'gridster'
+    'gridster',
+    'ngDialog'
 ]);
